@@ -14,6 +14,8 @@ export default defineConfig({
   use: {
     baseURL: process.env.TESTING_PAGE,
     trace: 'on-first-retry',
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
   },
 
   projects: [
