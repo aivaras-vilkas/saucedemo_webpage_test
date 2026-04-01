@@ -8,6 +8,17 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+  env:
+      TESTING_PAGE: ${{ secrets.TESTING_PAGE }}
+      STANDARD_USER_PASSWORD: ${{ secrets.STANDARD_USER_PASSWORD }}
+      STANDARD_USER_EMAIL: ${{ secrets.STANDARD_USER_EMAIL }}
+      LOCKED_OUT_USER: ${{ secrets.LOCKED_OUT_USER }}
+      PROBLEM_USER: ${{ secrets.PROBLEM_USER }}
+      PERFORMANCE_GLITCH_USER: ${{ secrets.PERFORMANCE_GLITCH_USER }}
+      ERROR_USER: ${{ secrets.ERROR_USER }}
+      VISUAL_USER: ${{ secrets.VISUAL_USER }}
+
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
