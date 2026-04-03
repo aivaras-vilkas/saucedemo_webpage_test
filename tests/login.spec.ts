@@ -26,6 +26,7 @@ test('Login with only username entered', async ({ page }) => {
   await expect(container).toHaveText('Epic sadface: Password is required');
 });
 
+
 test('Login with only password entered', async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goToHomepage();
