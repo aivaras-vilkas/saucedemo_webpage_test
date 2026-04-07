@@ -5,12 +5,14 @@ export class InventoryPage {
   private inventoryItems;
   private cartBadge;
   private cartButton;
+  private sortContainer;
 
   constructor(private page: Page) {
     this.inventoryList = page.locator('.inventory_list');
     this.inventoryItems = page.locator('.inventory_item');
     this.cartBadge = page.locator('.shopping_cart_badge');
     this.cartButton = page.locator('.shopping_cart_link');
+    this.sortContainer = page.locator('.product_sort_container');
   }
 
   async waitForInventoryPage() {
@@ -25,6 +27,18 @@ export class InventoryPage {
 
   async getItemNames() {
     return this.inventoryItems.locator('.inventory_item_name').allTextContents();
+  }
+
+  async getItemPrices() {
+    return this.inventoryItems.locator('.inventory_item_price').allTextContents();
+  }
+
+  async sortByPriceLowToHigh() {
+    await this.sortContainer.selectOption('lohi');
+  }
+
+  async sortByPriceHighToLow() {
+    await this.sortContainer.selectOption('hilo');
   }
 
   async getCartItemCount() {
